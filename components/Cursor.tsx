@@ -43,11 +43,11 @@ export default function Cursor() {
       if (ringRef.current) {
         ringRef.current.style.width = "36px";
         ringRef.current.style.height = "36px";
-        ringRef.current.style.borderColor = "rgba(255, 255, 255, 0.2)";
+        ringRef.current.style.borderColor = "var(--cursor-ring)";
         ringRef.current.style.backgroundColor = "transparent";
       }
       if (dotRef.current) {
-        dotRef.current.style.backgroundColor = "#FAFAFA";
+        dotRef.current.style.backgroundColor = "var(--cursor-dot)";
         dotRef.current.style.transform = "translate(-50%, -50%) scale(1)";
       }
     };

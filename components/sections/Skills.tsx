@@ -37,7 +37,7 @@ function SkillColumn({
           <motion.span
             key={skill}
             variants={tagVariant}
-            className="font-sans text-sm text-dust border border-[rgba(255,255,255,0.08)] rounded-full px-4 py-1.5 transition-all duration-300 hover:text-ink hover:border-[rgba(99,102,241,0.4)] hover:bg-[rgba(99,102,241,0.06)] cursor-default"
+            className="font-sans text-sm text-dust border border-[var(--border-medium)] rounded-full px-4 py-1.5 transition-all duration-300 hover:text-ink hover:border-[rgba(99,102,241,0.4)] hover:bg-[rgba(99,102,241,0.06)] cursor-default"
           >
             {skill}
           </motion.span>
@@ -92,7 +92,7 @@ export default function Skills() {
       </motion.p>
 
       {/* Divider */}
-      <div className="w-full h-px bg-[rgba(255,255,255,0.06)] mb-16 md:mb-20" />
+      <div className="w-full h-px bg-[var(--border-subtle)] mb-16 md:mb-20" />
 
       {/* Skills grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">

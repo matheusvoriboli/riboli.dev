@@ -129,7 +129,7 @@ export default function Hero() {
                   style={{
                     fontSize: "clamp(3rem, 11vw, 11rem)",
                     letterSpacing: "-0.03em",
-                    color: char === "." ? "#6366F1" : "#FAFAFA",
+                    color: char === "." ? "#6366F1" : "var(--color-ink)",
                   }}
                 >
                   {char}
@@ -168,7 +168,7 @@ export default function Hero() {
 
           <button
             onClick={scrollDown}
-            className="group flex items-center gap-2 border border-[rgba(255,255,255,0.1)] rounded-full px-5 py-2.5 text-sm font-sans text-dust hover:text-ink hover:border-accent transition-all duration-300"
+            className="group flex items-center gap-2 border border-[var(--border-strong)] rounded-full px-5 py-2.5 text-sm font-sans text-dust hover:text-ink hover:border-accent transition-all duration-300"
           >
             Scroll
             <ArrowDownRight
@@ -180,7 +180,7 @@ export default function Hero() {
       </motion.div>
 
       {/* Bottom border */}
-      <div className="w-full h-px bg-[rgba(255,255,255,0.06)]" />
+      <div className="w-full h-px bg-[var(--border-subtle)]" />
     </section>
   );
 }

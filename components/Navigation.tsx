@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { personal } from "@/lib/data";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const navLinks = [
   { label: "Skills", href: "#skills" },
@@ -40,10 +41,10 @@ export default function Navigation() {
           className="flex items-center justify-between h-16 transition-all duration-300 px-6 md:px-12"
           style={{
             borderBottom: scrolled
-              ? "1px solid rgba(255,255,255,0.06)"
+              ? "1px solid var(--nav-scrolled-border)"
               : "1px solid transparent",
             backdropFilter: scrolled ? "blur(12px)" : "none",
-            backgroundColor: scrolled ? "rgba(9,9,11,0.85)" : "transparent",
+            backgroundColor: scrolled ? "var(--nav-scrolled-bg)" : "transparent",
           }}
         >
           {/* Logo */}
@@ -55,7 +56,7 @@ export default function Navigation() {
           </button>
 
           {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-6">
             {navLinks.map((link) => (
               <button
                 key={link.href}
@@ -66,33 +67,42 @@ export default function Navigation() {
                 <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-accent transition-all duration-300 group-hover:w-full" />
               </button>
             ))}
+
+            <ThemeToggle />
+
             {personal.available && (
-              <span className="flex items-center gap-1.5 text-xs font-mono text-dust border border-[rgba(255,255,255,0.1)] rounded-full px-3 py-1">
+              <span
+                className="flex items-center gap-1.5 text-xs font-mono text-dust rounded-full px-3 py-1"
+                style={{ border: "1px solid var(--border-strong)" }}
+              >
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                 Disponível
               </span>
             )}
           </nav>
 
-          {/* Mobile burger */}
-          <button
-            onClick={() => setMenuOpen((v) => !v)}
-            className="md:hidden flex flex-col gap-1.5 p-1"
-            aria-label="Menu"
-          >
-            <motion.span
-              animate={menuOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }}
-              className="block w-6 h-px bg-ink origin-center transition-all"
-            />
-            <motion.span
-              animate={menuOpen ? { opacity: 0 } : { opacity: 1 }}
-              className="block w-4 h-px bg-ink"
-            />
-            <motion.span
-              animate={menuOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }}
-              className="block w-6 h-px bg-ink origin-center"
-            />
-          </button>
+          {/* Mobile: toggle + burger */}
+          <div className="md:hidden flex items-center gap-3">
+            <ThemeToggle />
+            <button
+              onClick={() => setMenuOpen((v) => !v)}
+              className="flex flex-col gap-1.5 p-1"
+              aria-label="Menu"
+            >
+              <motion.span
+                animate={menuOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }}
+                className="block w-6 h-px bg-ink origin-center transition-all"
+              />
+              <motion.span
+                animate={menuOpen ? { opacity: 0 } : { opacity: 1 }}
+                className="block w-4 h-px bg-ink"
+              />
+              <motion.span
+                animate={menuOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }}
+                className="block w-6 h-px bg-ink origin-center"
+              />
+            </button>
+          </div>
         </div>
       </motion.header>
 
@@ -112,11 +122,7 @@ export default function Navigation() {
                 key={link.href}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{
-                  delay: i * 0.06,
-                  duration: 0.4,
-                  ease: [0.33, 1, 0.68, 1],
-                }}
+                transition={{ delay: i * 0.06, duration: 0.4, ease: [0.33, 1, 0.68, 1] }}
                 onClick={() => scrollTo(link.href)}
                 className="font-display font-bold text-4xl text-ink hover:text-accent transition-colors duration-200"
               >

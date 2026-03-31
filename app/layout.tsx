@@ -42,6 +42,12 @@ export default function RootLayout({
       className={`${spaceGrotesk.variable} ${jetbrains.variable} h-full`}
     >
       <body className="min-h-full bg-deep text-ink antialiased">
+        {/* Anti-FOUC: set theme attribute before first paint */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('theme');if(t==='light')document.documentElement.setAttribute('data-theme','light')}catch(e){}})()`,
+          }}
+        />
         <Cursor />
         {children}
       </body>

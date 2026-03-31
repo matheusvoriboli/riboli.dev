@@ -54,8 +54,7 @@ export default function Contact() {
     <section
       id="contact"
       ref={ref}
-      className="relative px-6 md:px-12 py-14 md:py-20"
-      style={{ backgroundColor: "#111113" }}
+      className="relative bg-surface px-6 md:px-12 py-14 md:py-20"
     >
       {/*
         Blob container uses clipPath instead of overflow:hidden.
@@ -132,7 +131,7 @@ export default function Contact() {
             </div>
             <div style={{ display: "block", paddingBottom: "0.35em" }}>
               <span style={{ color: "#6366F1" }}>algo juntos</span>
-              <span style={{ color: "#FAFAFA" }}>.</span>
+              <span className="text-ink">.</span>
             </div>
           </div>
         </motion.div>
@@ -150,10 +149,10 @@ export default function Contact() {
               href={href}
               target={href.startsWith("mailto") ? "_self" : "_blank"}
               rel="noopener noreferrer"
-              className="group flex items-center justify-between gap-4 border border-[rgba(255,255,255,0.08)] rounded-2xl px-6 py-5 flex-1 hover:border-[rgba(99,102,241,0.35)] hover:bg-[rgba(99,102,241,0.04)] transition-all duration-300"
+              className="group flex items-center justify-between gap-4 border border-[var(--border-medium)] rounded-2xl px-6 py-5 flex-1 hover:border-[rgba(99,102,241,0.35)] hover:bg-[rgba(99,102,241,0.04)] transition-all duration-300"
             >
               <div className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-xl border border-[rgba(255,255,255,0.08)] flex items-center justify-center text-dust group-hover:text-ink group-hover:border-[rgba(99,102,241,0.3)] transition-all duration-300 flex-shrink-0">
+                <div className="w-10 h-10 rounded-xl border border-[var(--border-medium)] flex items-center justify-center text-dust group-hover:text-ink group-hover:border-[rgba(99,102,241,0.3)] transition-all duration-300 flex-shrink-0">
                   {Icon ? (
                     <Icon size={16} />
                   ) : CustomIcon ? (
@@ -183,7 +182,7 @@ export default function Contact() {
         initial={{ opacity: 0 }}
         animate={inView ? { opacity: 1 } : {}}
         transition={{ duration: 0.6, delay: 0.9 }}
-        className="relative z-10 flex items-center justify-between mt-10 md:mt-12 pt-6 border-t border-[rgba(255,255,255,0.06)]"
+        className="relative z-10 flex items-center justify-between mt-10 md:mt-12 pt-6 border-t border-[var(--border-subtle)]"
       >
         <span className="font-mono text-xs text-dust/30 tracking-widest uppercase">
           {personal.name} © {new Date().getFullYear()}

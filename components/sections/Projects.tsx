@@ -22,7 +22,7 @@ function ProjectCard({
       initial={{ y: 50, opacity: 0 }}
       animate={inView ? { y: 0, opacity: 1 } : {}}
       transition={{ delay: (index % 2) * 0.12, duration: 0.7, ease: EASE }}
-      className="group relative flex flex-col justify-between rounded-2xl border border-[rgba(255,255,255,0.07)] bg-elevated p-7 md:p-8"
+      className="group relative flex flex-col justify-between rounded-2xl border border-[var(--border-subtle)] bg-elevated p-7 md:p-8"
       style={{
         transition: "border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease",
       }}
@@ -35,7 +35,7 @@ function ProjectCard({
       onMouseLeave={(e) => {
         const el = e.currentTarget;
         el.style.transform = "translateY(0)";
-        el.style.borderColor = "rgba(255,255,255,0.07)";
+        el.style.borderColor = "var(--border-subtle)";
         el.style.boxShadow = "none";
       }}
     >
@@ -94,7 +94,7 @@ function ProjectCard({
         {project.tags.map((tag) => (
           <span
             key={tag}
-            className="font-mono text-xs text-dust/50 border border-[rgba(255,255,255,0.06)] rounded-full px-3 py-1"
+            className="font-mono text-xs text-dust/50 border border-[var(--border-subtle)] rounded-full px-3 py-1"
           >
             {tag}
           </span>
@@ -135,7 +135,7 @@ export default function Projects() {
       </div>
 
       {/* Divider */}
-      <div className="w-full h-px bg-[rgba(255,255,255,0.06)] mb-10 md:mb-14" />
+      <div className="w-full h-px bg-[var(--border-subtle)] mb-10 md:mb-14" />
 
       {/* Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">

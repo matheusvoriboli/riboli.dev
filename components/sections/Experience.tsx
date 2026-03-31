@@ -47,7 +47,7 @@ function ExperienceItem({
         className="absolute right-0 top-1/2 -translate-y-1/2 font-display font-bold select-none pointer-events-none leading-none"
         style={{
           fontSize: "clamp(5rem, 14vw, 10rem)",
-          color: "rgba(255,255,255,0.025)",
+          color: "var(--border-ghost)",
           letterSpacing: "-0.05em",
           transition: "color 0.5s ease",
         }}
@@ -60,8 +60,12 @@ function ExperienceItem({
         {/* Top row: role + period */}
         <div className="flex flex-col md:flex-row md:items-baseline md:justify-between gap-1 md:gap-8 mb-3">
           <h3
-            className="font-display font-bold text-2xl md:text-3xl text-ink group-hover:text-white transition-colors duration-300"
-            style={{ letterSpacing: "-0.025em", lineHeight: 1.4, paddingBottom: "0.1em" }}
+            className="font-display font-bold text-2xl md:text-3xl text-ink group-hover:text-[var(--hover-strong)] transition-colors duration-300"
+            style={{
+              letterSpacing: "-0.025em",
+              lineHeight: 1.4,
+              paddingBottom: "0.1em",
+            }}
           >
             {exp.role}
           </h3>
@@ -88,7 +92,7 @@ function ExperienceItem({
           {exp.tags.map((tag) => (
             <span
               key={tag}
-              className="font-mono text-xs text-dust/50 border border-[rgba(255,255,255,0.07)] rounded-full px-3 py-1 group-hover:border-[rgba(99,102,241,0.2)] transition-colors duration-300"
+              className="font-mono text-xs text-dust/50 border border-[var(--border-subtle)] rounded-full px-3 py-1 group-hover:border-[rgba(99,102,241,0.2)] transition-colors duration-300"
             >
               {tag}
             </span>
@@ -107,8 +111,7 @@ export default function Experience() {
     <section
       id="experience"
       ref={ref}
-      className="px-6 md:px-12 py-14 md:py-20"
-      style={{ backgroundColor: "#111113" }}
+      className="bg-surface px-6 md:px-12 py-14 md:py-20"
     >
       {/* Header */}
       <div className="flex items-start justify-between mb-10 md:mb-16">
@@ -127,7 +130,11 @@ export default function Experience() {
         >
           <h2
             className="font-display font-bold text-4xl md:text-6xl text-ink"
-            style={{ letterSpacing: "-0.025em", lineHeight: 1.4, paddingBottom: "0.15em" }}
+            style={{
+              letterSpacing: "-0.025em",
+              lineHeight: 1.4,
+              paddingBottom: "0.15em",
+            }}
           >
             Experiência
           </h2>
