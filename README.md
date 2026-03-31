@@ -1,36 +1,101 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# riboli.dev
 
-## Getting Started
+A modern personal portfolio website built with Next.js 16, showcasing professional experience, skills, education, and projects.
 
-First, run the development server:
+## ✨ Features
+
+- **Responsive Design** - Mobile-first approach with Tailwind CSS 4
+- **Smooth Animations** - Framer Motion for elegant transitions and interactions
+- **Modern Stack** - Built with Next.js 16, React 19, and TypeScript
+- **Fast Performance** - Optimized for speed with automatic image and font optimization
+- **Multiple Sections** - Hero, Skills, Experience, Education, Projects, and Contact areas
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js 18+ (recommended 20 LTS)
+- npm, yarn, pnpm, or bun
+
+### Installation
+
+1. Install dependencies:
+
+```bash
+npm install
+```
+
+2. Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The app auto-reloads as you edit files. Start by modifying `app/page.tsx`.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📁 Project Structure
 
-## Learn More
+```
+riboli.dev/
+├── app/
+│   ├── layout.tsx          # Root layout with providers
+│   ├── page.tsx            # Main portfolio page
+│   └── globals.css         # Global styles
+├── components/
+│   ├── Navigation.tsx      # Header/navigation
+│   └── sections/
+│       ├── Hero.tsx        # Hero section
+│       ├── Skills.tsx      # Skills section
+│       ├── Experience.tsx  # Work experience
+│       ├── Education.tsx   # Education section
+│       ├── Projects.tsx    # Projects showcase
+│       └── Contact.tsx     # Contact section
+├── public/                 # Static assets
+├── package.json
+└── tsconfig.json
+```
 
-To learn more about Next.js, take a look at the following resources:
+## 🛠️ Tech Stack
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Framework**: [Next.js 16.2.1](https://nextjs.org)
+- **UI Library**: [React 19.2.4](https://react.dev)
+- **Styling**: [Tailwind CSS 4](https://tailwindcss.com)
+- **Animations**: [Framer Motion 12](https://www.framer.com/motion)
+- **Icons**: [Lucide React](https://lucide.dev)
+- **Language**: [TypeScript 5](https://www.typescriptlang.org)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📝 Available Scripts
 
-## Deploy on Vercel
+```bash
+npm run dev      # Start development server
+npm run build    # Build for production
+npm start        # Start production server
+npm run lint     # Run ESLint checks
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🎨 Customization
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Content**: Edit sections in `components/sections/`
+- **Styles**: Modify Tailwind CSS classes or update `app/globals.css`
+- **Navigation**: Update `components/Navigation.tsx`
+- **Animations**: Adjust Framer Motion configs in component files
+
+## 🚢 Deployment
+
+The easiest way to deploy is on [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=riboli-dev):
+
+```bash
+npm run build   # Verify production build
+vercel         # Deploy to Vercel
+```
+
+For detailed deployment instructions, see the [Next.js deployment docs](https://nextjs.org/docs/app/building-your-application/deploying).
+
+## 📚 Learn More
+
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Tailwind CSS Docs](https://tailwindcss.com/docs)
+- [Framer Motion Docs](https://www.framer.com/motion/introduction)
+- [TypeScript Handbook](https://www.typescriptlang.org/docs/)
