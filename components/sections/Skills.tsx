@@ -1,0 +1,105 @@
+"use client";
+
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
+import { skills } from "@/lib/data";
+import { fadeUp, stagger, tagVariant } from "@/lib/animations";
+
+function SkillColumn({
+  title,
+  items,
+  inView,
+  accent = false,
+}: {
+  title: string;
+  items: string[];
+  inView: boolean;
+  accent?: boolean;
+}) {
+  return (
+    <div className="flex flex-col gap-5">
+      <motion.span
+        variants={fadeUp(0.1)}
+        initial="hidden"
+        animate={inView ? "visible" : "hidden"}
+        className="font-mono text-xs tracking-widest uppercase"
+        style={{ color: accent ? "#6366F1" : "rgba(161,161,170,0.45)" }}
+      >
+        {title}
+      </motion.span>
+      <motion.div
+        variants={stagger}
+        initial="hidden"
+        animate={inView ? "visible" : "hidden"}
+        className="flex flex-wrap gap-2"
+      >
+        {items.map((skill) => (
+          <motion.span
+            key={skill}
+            variants={tagVariant}
+            className="font-sans text-sm text-dust border border-[rgba(255,255,255,0.08)] rounded-full px-4 py-1.5 transition-all duration-300 hover:text-ink hover:border-[rgba(99,102,241,0.4)] hover:bg-[rgba(99,102,241,0.06)] cursor-default"
+          >
+            {skill}
+          </motion.span>
+        ))}
+      </motion.div>
+    </div>
+  );
+}
+
+export default function Skills() {
+  const ref = useRef<HTMLElement>(null);
+  const inView = useInView(ref, { once: true, amount: 0.2 });
+
+  return (
+    <section id="skills" ref={ref} className="px-6 md:px-12 py-14 md:py-20">
+      {/* Header */}
+      <div className="flex items-start justify-between mb-10 md:mb-14">
+        <motion.span
+          variants={fadeUp(0)}
+          initial="hidden"
+          animate={inView ? "visible" : "hidden"}
+          className="font-mono text-xs text-dust/40 tracking-widest uppercase"
+        >
+          01
+        </motion.span>
+        <motion.div variants={fadeUp(0.1)} initial="hidden" animate={inView ? "visible" : "hidden"}>
+          <h2
+            className="font-display font-bold text-4xl md:text-6xl text-ink"
+            style={{
+              letterSpacing: "-0.025em",
+              lineHeight: 1.4,
+              paddingBottom: "0.15em",
+            }}
+          >
+            Skills
+          </h2>
+        </motion.div>
+      </div>
+
+      {/* About blurb */}
+      <motion.p
+        variants={fadeUp(0.2)}
+        initial="hidden"
+        animate={inView ? "visible" : "hidden"}
+        className="font-sans text-dust text-base md:text-lg font-light leading-relaxed max-w-2xl mb-10 md:mb-14"
+      >
+        Frontend engineer com foco em React e Next.js, apaixonado por criar
+        interfaces que são ao mesmo tempo{" "}
+        <span className="text-ink font-medium">belas</span> e{" "}
+        <span className="text-ink font-medium">performáticas</span>.
+        Expandindo para o ecossistema full-stack.
+      </motion.p>
+
+      {/* Divider */}
+      <div className="w-full h-px bg-[rgba(255,255,255,0.06)] mb-16 md:mb-20" />
+
+      {/* Skills grid */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">
+        <SkillColumn title="Frontend" items={skills.frontend} inView={inView} accent />
+        <SkillColumn title="Aprendendo" items={skills.growing} inView={inView} />
+        <SkillColumn title="Ferramentas" items={skills.tools} inView={inView} />
+      </div>
+    </section>
+  );
+}
