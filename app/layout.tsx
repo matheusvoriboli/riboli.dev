@@ -25,6 +25,10 @@ export const metadata: Metadata = {
     "Frontend engineer building modern, fast, and accessible web experiences. Transitioning into full-stack development.",
   keywords: ["Frontend Developer", "React", "Next.js", "TypeScript", "Software Engineer"],
   authors: [{ name: "Matheus Riboli" }],
+  icons: {
+    icon: "/logo.svg",
+    shortcut: "/logo.svg",
+  },
   openGraph: {
     title: "Matheus Riboli — Software Developer",
     description: "Frontend engineer building modern, fast, and accessible web experiences.",
