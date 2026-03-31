@@ -3,17 +3,23 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { personal } from "@/lib/data";
+import { useI18n } from "@/lib/i18n";
+import { translations } from "@/lib/translations";
 import ThemeToggle from "@/components/ThemeToggle";
-
-const navLinks = [
-  { label: "Skills", href: "#skills" },
-  { label: "Experiência", href: "#experience" },
-  { label: "Formação", href: "#education" },
-  { label: "Projetos", href: "#projects" },
-  { label: "Contato", href: "#contact" },
-];
+import LangToggle from "@/components/LangToggle";
 
 export default function Navigation() {
+  const { locale } = useI18n();
+  const t = translations[locale];
+
+  const navLinks = [
+    { label: t.nav.skills, href: "#skills" },
+    { label: t.nav.experience, href: "#experience" },
+    { label: t.nav.education, href: "#education" },
+    { label: t.nav.projects, href: "#projects" },
+    { label: t.nav.contact, href: "#contact" },
+  ];
+
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -69,6 +75,7 @@ export default function Navigation() {
               </button>
             ))}
 
+            <LangToggle />
             <ThemeToggle />
 
             {personal.available && (
@@ -77,13 +84,14 @@ export default function Navigation() {
                 style={{ border: "1px solid var(--border-strong)" }}
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                Disponível
+                {t.available}
               </span>
             )}
           </nav>
 
-          {/* Mobile: toggle + burger */}
+          {/* Mobile: toggles + burger */}
           <div className="md:hidden flex items-center gap-3">
+            <LangToggle />
             <ThemeToggle />
             <button
               onClick={() => setMenuOpen((v) => !v)}

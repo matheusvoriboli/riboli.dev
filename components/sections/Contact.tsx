@@ -4,6 +4,8 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { personal } from "@/lib/data";
 import { fadeUp, EASE } from "@/lib/animations";
+import { useI18n } from "@/lib/i18n";
+import { translations } from "@/lib/translations";
 import { Mail, ArrowUpRight } from "lucide-react";
 
 function GithubIcon({ size = 16 }: { size?: number }) {
@@ -22,31 +24,34 @@ function LinkedinIcon({ size = 16 }: { size?: number }) {
   );
 }
 
-const links = [
-  {
-    label: "Email",
-    value: personal.email,
-    href: `mailto:${personal.email}`,
-    Icon: Mail,
-    CustomIcon: null,
-  },
-  {
-    label: "GitHub",
-    value: "@matheusriboli",
-    href: personal.github,
-    Icon: null,
-    CustomIcon: GithubIcon,
-  },
-  {
-    label: "LinkedIn",
-    value: "Matheus Riboli",
-    href: personal.linkedin,
-    Icon: null,
-    CustomIcon: LinkedinIcon,
-  },
-] as const;
-
 export default function Contact() {
+  const { locale } = useI18n();
+  const t = translations[locale];
+
+  const links = [
+    {
+      label: t.contact.email,
+      value: personal.email,
+      href: `mailto:${personal.email}`,
+      Icon: Mail,
+      CustomIcon: null,
+    },
+    {
+      label: t.contact.github,
+      value: "@matheusriboli",
+      href: personal.github,
+      Icon: null,
+      CustomIcon: GithubIcon,
+    },
+    {
+      label: t.contact.linkedin,
+      value: "Matheus Riboli",
+      href: personal.linkedin,
+      Icon: null,
+      CustomIcon: LinkedinIcon,
+    },
+  ] as const;
+
   const ref = useRef<HTMLElement>(null);
   const inView = useInView(ref, { once: true, amount: 0.3 });
 
@@ -106,7 +111,7 @@ export default function Contact() {
                 paddingBottom: "0.15em",
               }}
             >
-              Contato
+              {t.contact.title}
             </h2>
           </motion.div>
         </div>
@@ -127,10 +132,10 @@ export default function Contact() {
             }}
           >
             <div style={{ display: "block", paddingBottom: "0.1em" }}>
-              Vamos construir
+              {t.contact.cta1}
             </div>
             <div style={{ display: "block", paddingBottom: "0.35em" }}>
-              <span style={{ color: "#6366F1" }}>algo juntos</span>
+              <span style={{ color: "#6366F1" }}>{t.contact.cta2}</span>
               <span className="text-ink">.</span>
             </div>
           </div>

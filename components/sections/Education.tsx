@@ -4,13 +4,17 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { education, languages } from "@/lib/data";
 import { fadeUp, EASE } from "@/lib/animations";
+import { useI18n, type Locale } from "@/lib/i18n";
+import { translations } from "@/lib/translations";
 
 function EducationItem({
   item,
   index,
+  locale,
 }: {
   item: (typeof education)[number];
   index: number;
+  locale: Locale;
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, amount: 0.2 });
@@ -35,7 +39,7 @@ function EducationItem({
       {/* Period + location — left column */}
       <div className="pl-6 shrink-0 md:w-52 flex flex-col gap-1">
         <span className="font-mono text-xs text-dust/40 tracking-widest uppercase">
-          {item.period}
+          {item.period[locale]}
         </span>
         <span className="font-mono text-xs text-dust/25 tracking-wide">
           {item.location}
@@ -54,11 +58,11 @@ function EducationItem({
           className="font-mono text-xs tracking-widest uppercase font-medium mt-1.5 block"
           style={{ color: "#6366F1" }}
         >
-          {item.degree}
+          {item.degree[locale]}
         </span>
-        {item.description && (
+        {item.description[locale] && (
           <p className="font-sans text-dust text-sm leading-relaxed font-light mt-3 max-w-xl">
-            {item.description}
+            {item.description[locale]}
           </p>
         )}
       </div>
@@ -67,6 +71,9 @@ function EducationItem({
 }
 
 export default function Education() {
+  const { locale } = useI18n();
+  const t = translations[locale];
+
   const ref = useRef<HTMLElement>(null);
   const inView = useInView(ref, { once: true, amount: 0.1 });
 
@@ -95,7 +102,7 @@ export default function Education() {
             className="font-display font-bold text-4xl md:text-6xl text-ink"
             style={{ letterSpacing: "-0.025em", lineHeight: 1.4, paddingBottom: "0.15em" }}
           >
-            Formação
+            {t.education.title}
           </h2>
         </motion.div>
       </div>
@@ -103,7 +110,7 @@ export default function Education() {
       {/* Education list */}
       <div className="flex flex-col divide-y divide-[var(--border-subtle)]">
         {education.map((item, i) => (
-          <EducationItem key={item.id} item={item} index={i} />
+          <EducationItem key={item.id} item={item} index={i} locale={locale} />
         ))}
       </div>
 
@@ -115,7 +122,7 @@ export default function Education() {
         className="mt-12 md:mt-16 pt-10 md:pt-12 border-t border-[var(--border-subtle)]"
       >
         <span className="font-mono text-xs text-dust/40 tracking-widest uppercase block mb-8">
-          Idiomas
+          {t.education.languages}
         </span>
         <div className="flex flex-col sm:flex-row gap-6 sm:gap-10">
           {languages.map((lang, i) => (
@@ -148,7 +155,7 @@ export default function Education() {
                   {lang.language}
                 </span>
                 <span className="font-mono text-xs text-dust/40 tracking-wide">
-                  {lang.fluency}
+                  {lang.fluency[locale]}
                 </span>
               </div>
             </motion.div>

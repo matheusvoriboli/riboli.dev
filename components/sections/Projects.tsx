@@ -4,14 +4,20 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { projects } from "@/lib/data";
 import { fadeUp, EASE } from "@/lib/animations";
+import { useI18n } from "@/lib/i18n";
+import { translations } from "@/lib/translations";
 import { ArrowUpRight, GitFork } from "lucide-react";
 
 function ProjectCard({
   project,
   index,
+  repoLabel,
+  liveLabel,
 }: {
   project: (typeof projects)[number];
   index: number;
+  repoLabel: string;
+  liveLabel: string;
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, amount: 0.2 });
@@ -57,7 +63,7 @@ function ProjectCard({
               target="_blank"
               rel="noopener noreferrer"
               className="text-dust/40 hover:text-ink transition-colors duration-200"
-              aria-label="Repositório"
+              aria-label={repoLabel}
             >
               <GitFork size={15} />
             </a>
@@ -68,7 +74,7 @@ function ProjectCard({
               target="_blank"
               rel="noopener noreferrer"
               className="text-dust/40 hover:text-ink transition-colors duration-200"
-              aria-label="Ver projeto ao vivo"
+              aria-label={liveLabel}
             >
               <ArrowUpRight size={16} />
             </a>
@@ -105,6 +111,9 @@ function ProjectCard({
 }
 
 export default function Projects() {
+  const { locale } = useI18n();
+  const t = translations[locale];
+
   const ref = useRef<HTMLElement>(null);
   const inView = useInView(ref, { once: true, amount: 0.1 });
 
@@ -129,7 +138,7 @@ export default function Projects() {
               paddingBottom: "0.15em",
             }}
           >
-            Projetos
+            {t.projects.title}
           </h2>
         </motion.div>
       </div>
@@ -140,7 +149,7 @@ export default function Projects() {
       {/* Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
         {projects.map((project, i) => (
-          <ProjectCard key={project.id} project={project} index={i} />
+          <ProjectCard key={project.id} project={project} index={i} repoLabel={t.repoLabel} liveLabel={t.liveLabel} />
         ))}
       </div>
     </section>

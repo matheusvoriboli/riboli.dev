@@ -4,12 +4,17 @@ import { useRef } from "react";
 import { motion, useTransform, useScroll } from "framer-motion";
 import { personal } from "@/lib/data";
 import { EASE, letterVariants, fadeUp } from "@/lib/animations";
+import { useI18n } from "@/lib/i18n";
+import { translations } from "@/lib/translations";
 import { ArrowDownRight } from "lucide-react";
 
 const firstName = "MATHEUS";
 const lastName = "RIBOLI.";
 
 export default function Hero() {
+  const { locale } = useI18n();
+  const t = translations[locale];
+
   const containerRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -146,7 +151,7 @@ export default function Hero() {
             className="font-sans text-dust text-base md:text-lg font-light max-w-sm md:max-w-md mt-6 md:mt-8"
             style={{ letterSpacing: "0.01em" }}
           >
-            {personal.tagline}
+            {t.tagline}
           </motion.p>
         </div>
 
@@ -162,7 +167,7 @@ export default function Hero() {
               Role
             </span>
             <span className="font-sans text-sm text-ink font-medium">
-              {personal.role}
+              {t.role}
             </span>
           </div>
 
@@ -170,7 +175,7 @@ export default function Hero() {
             onClick={scrollDown}
             className="group flex items-center gap-2 border border-[var(--border-strong)] rounded-full px-5 py-2.5 text-sm font-sans text-dust hover:text-ink hover:border-accent transition-all duration-300"
           >
-            Scroll
+            {t.scroll}
             <ArrowDownRight
               size={14}
               className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:translate-y-0.5"

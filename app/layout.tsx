@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Cursor from "@/components/Cursor";
+import { I18nProvider } from "@/lib/i18n";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -48,8 +49,10 @@ export default function RootLayout({
             __html: `(function(){try{var t=localStorage.getItem('theme');if(t==='light')document.documentElement.setAttribute('data-theme','light')}catch(e){}})()`,
           }}
         />
-        <Cursor />
-        {children}
+        <I18nProvider>
+          <Cursor />
+          {children}
+        </I18nProvider>
       </body>
     </html>
   );

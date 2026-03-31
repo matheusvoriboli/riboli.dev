@@ -4,13 +4,17 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { experiences } from "@/lib/data";
 import { fadeUp, EASE } from "@/lib/animations";
+import { useI18n, type Locale } from "@/lib/i18n";
+import { translations } from "@/lib/translations";
 
 function ExperienceItem({
   exp,
   index,
+  locale,
 }: {
   exp: (typeof experiences)[number];
   index: number;
+  locale: Locale;
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, amount: 0.2 });
@@ -67,10 +71,10 @@ function ExperienceItem({
               paddingBottom: "0.1em",
             }}
           >
-            {exp.role}
+            {exp.role[locale]}
           </h3>
           <span className="font-mono text-xs text-dust/40 tracking-widest uppercase whitespace-nowrap shrink-0">
-            {exp.period}
+            {exp.period[locale]}
           </span>
         </div>
 
@@ -84,7 +88,7 @@ function ExperienceItem({
 
         {/* Description */}
         <p className="font-sans text-dust text-sm md:text-base leading-relaxed font-light mt-4 max-w-2xl">
-          {exp.description}
+          {exp.description[locale]}
         </p>
 
         {/* Tags */}
@@ -104,6 +108,9 @@ function ExperienceItem({
 }
 
 export default function Experience() {
+  const { locale } = useI18n();
+  const t = translations[locale];
+
   const ref = useRef<HTMLElement>(null);
   const inView = useInView(ref, { once: true, amount: 0.1 });
 
@@ -136,7 +143,7 @@ export default function Experience() {
               paddingBottom: "0.15em",
             }}
           >
-            Experiência
+            {t.experience.title}
           </h2>
         </motion.div>
       </div>
@@ -144,7 +151,7 @@ export default function Experience() {
       {/* List — no borders, spacing + ghost numbers do the visual work */}
       <div className="flex flex-col">
         {experiences.map((exp, i) => (
-          <ExperienceItem key={exp.id} exp={exp} index={i} />
+          <ExperienceItem key={exp.id} exp={exp} index={i} locale={locale} />
         ))}
       </div>
     </section>

@@ -4,17 +4,17 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { skills } from "@/lib/data";
 import { fadeUp, stagger, tagVariant } from "@/lib/animations";
+import { useI18n } from "@/lib/i18n";
+import { translations } from "@/lib/translations";
 
 function SkillColumn({
   title,
   items,
   inView,
-  accent = false,
 }: {
   title: string;
   items: string[];
   inView: boolean;
-  accent?: boolean;
 }) {
   return (
     <div className="flex flex-col gap-5">
@@ -23,7 +23,7 @@ function SkillColumn({
         initial="hidden"
         animate={inView ? "visible" : "hidden"}
         className="font-mono text-xs tracking-widest uppercase"
-        style={{ color: accent ? "#6366F1" : "rgba(161,161,170,0.45)" }}
+        style={{ color: "#6366F1" }}
       >
         {title}
       </motion.span>
@@ -48,6 +48,9 @@ function SkillColumn({
 }
 
 export default function Skills() {
+  const { locale } = useI18n();
+  const t = translations[locale];
+
   const ref = useRef<HTMLElement>(null);
   const inView = useInView(ref, { once: true, amount: 0.2 });
 
@@ -63,7 +66,11 @@ export default function Skills() {
         >
           01
         </motion.span>
-        <motion.div variants={fadeUp(0.1)} initial="hidden" animate={inView ? "visible" : "hidden"}>
+        <motion.div
+          variants={fadeUp(0.1)}
+          initial="hidden"
+          animate={inView ? "visible" : "hidden"}
+        >
           <h2
             className="font-display font-bold text-4xl md:text-6xl text-ink"
             style={{
@@ -72,7 +79,7 @@ export default function Skills() {
               paddingBottom: "0.15em",
             }}
           >
-            Skills
+            {t.skills.title}
           </h2>
         </motion.div>
       </div>
@@ -84,11 +91,7 @@ export default function Skills() {
         animate={inView ? "visible" : "hidden"}
         className="font-sans text-dust text-base md:text-lg font-light leading-relaxed max-w-2xl mb-10 md:mb-14"
       >
-        Frontend engineer com foco em React e Next.js, apaixonado por criar
-        interfaces que são ao mesmo tempo{" "}
-        <span className="text-ink font-medium">belas</span> e{" "}
-        <span className="text-ink font-medium">performáticas</span>.
-        Expandindo para o ecossistema full-stack.
+        {t.skills.about}
       </motion.p>
 
       {/* Divider */}
@@ -96,9 +99,21 @@ export default function Skills() {
 
       {/* Skills grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">
-        <SkillColumn title="Frontend & Mobile" items={skills.frontend} inView={inView} accent />
-        <SkillColumn title="Arquitetura & IA" items={skills.growing} inView={inView} />
-        <SkillColumn title="Ferramentas & DevOps" items={skills.tools} inView={inView} />
+        <SkillColumn
+          title={t.skills.col1}
+          items={skills.frontend}
+          inView={inView}
+        />
+        <SkillColumn
+          title={t.skills.col2}
+          items={skills.growing}
+          inView={inView}
+        />
+        <SkillColumn
+          title={t.skills.col3}
+          items={skills.tools}
+          inView={inView}
+        />
       </div>
     </section>
   );
