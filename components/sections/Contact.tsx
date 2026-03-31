@@ -91,7 +91,7 @@ export default function Contact() {
             animate={inView ? "visible" : "hidden"}
             className="font-mono text-xs text-dust/40 tracking-widest uppercase"
           >
-            04
+            05
           </motion.span>
           <motion.div
             variants={fadeUp(0.1)}

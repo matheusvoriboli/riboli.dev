@@ -96,9 +96,9 @@ export default function Skills() {
 
       {/* Skills grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">
-        <SkillColumn title="Frontend" items={skills.frontend} inView={inView} accent />
-        <SkillColumn title="Aprendendo" items={skills.growing} inView={inView} />
-        <SkillColumn title="Ferramentas" items={skills.tools} inView={inView} />
+        <SkillColumn title="Frontend & Mobile" items={skills.frontend} inView={inView} accent />
+        <SkillColumn title="Arquitetura & IA" items={skills.growing} inView={inView} />
+        <SkillColumn title="Ferramentas & DevOps" items={skills.tools} inView={inView} />
       </div>
     </section>
   );

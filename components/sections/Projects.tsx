@@ -118,7 +118,7 @@ export default function Projects() {
           animate={inView ? "visible" : "hidden"}
           className="font-mono text-xs text-dust/40 tracking-widest uppercase"
         >
-          03
+          04
         </motion.span>
         <motion.div variants={fadeUp(0.1)} initial="hidden" animate={inView ? "visible" : "hidden"}>
           <h2
