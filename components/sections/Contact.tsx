@@ -153,7 +153,7 @@ export default function Contact() {
               key={label}
               href={href}
               target={href.startsWith("mailto") ? "_self" : "_blank"}
-              rel="noopener noreferrer"
+              rel={href.startsWith("mailto") ? undefined : "noopener noreferrer"}
               className="group flex items-center justify-between gap-4 border border-[var(--border-medium)] rounded-2xl px-6 py-5 flex-1 hover:border-[rgba(99,102,241,0.35)] hover:bg-[rgba(99,102,241,0.04)] transition-all duration-300"
             >
               <div className="flex items-center gap-4">

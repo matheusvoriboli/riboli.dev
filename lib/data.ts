@@ -2,8 +2,8 @@ export const personal = {
   name: "Matheus Riboli",
   location: "Ribeirão Preto, SP",
   email: "matheusvor@gmail.com",
-  github: "https://github.com/matheusriboli",
-  linkedin: "https://github.com/matheusvoriboli",
+  github: "https://github.com/matheusvoriboli",
+  linkedin: "https://linkedin.com/in/matheusriboli",
   available: true,
 };
 

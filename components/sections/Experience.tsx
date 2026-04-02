@@ -25,7 +25,7 @@ function ExperienceItem({
       initial={{ opacity: 0, y: 32 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ delay: index * 0.12, duration: 0.7, ease: EASE }}
-      className="group relative py-10 md:py-14"
+      className="group relative py-10 md:py-14 overflow-hidden"
     >
       {/* Hover: left accent bar */}
       <div
@@ -48,7 +48,7 @@ function ExperienceItem({
       {/* Ghost index number — background right */}
       <div
         aria-hidden
-        className="absolute right-0 top-1/2 -translate-y-1/2 font-display font-bold select-none pointer-events-none leading-none"
+        className="absolute right-0 top-10 md:top-14 lg:top-28 font-display font-bold select-none pointer-events-none leading-none"
         style={{
           fontSize: "clamp(5rem, 14vw, 10rem)",
           color: "var(--border-ghost)",
@@ -62,7 +62,7 @@ function ExperienceItem({
       {/* Content */}
       <div className="relative pl-6">
         {/* Top row: role + period */}
-        <div className="flex flex-col md:flex-row md:items-baseline md:justify-between gap-1 md:gap-8 mb-3">
+        <div className="flex flex-col lg:flex-row lg:items-baseline lg:justify-between gap-1 lg:gap-8 mb-3">
           <div className="flex items-baseline gap-3 flex-wrap">
             <h3
               className="font-display font-bold text-2xl md:text-3xl text-ink group-hover:text-[var(--hover-strong)] transition-colors duration-300"

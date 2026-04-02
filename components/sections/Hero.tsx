@@ -116,7 +116,10 @@ export default function Hero() {
                   initial="hidden"
                   animate="visible"
                   className="font-display font-extrabold text-ink select-none inline-block"
-                  style={{ fontSize: "clamp(3rem, 11vw, 11rem)", letterSpacing: "-0.03em" }}
+                  style={{
+                    fontSize: "clamp(3rem, 11vw, 11rem)",
+                    letterSpacing: "-0.03em",
+                  }}
                 >
                   {char}
                 </motion.span>
