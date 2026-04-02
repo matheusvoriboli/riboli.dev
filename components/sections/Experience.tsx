@@ -63,16 +63,31 @@ function ExperienceItem({
       <div className="relative pl-6">
         {/* Top row: role + period */}
         <div className="flex flex-col md:flex-row md:items-baseline md:justify-between gap-1 md:gap-8 mb-3">
-          <h3
-            className="font-display font-bold text-2xl md:text-3xl text-ink group-hover:text-[var(--hover-strong)] transition-colors duration-300"
-            style={{
-              letterSpacing: "-0.025em",
-              lineHeight: 1.4,
-              paddingBottom: "0.1em",
-            }}
-          >
-            {exp.role[locale]}
-          </h3>
+          <div className="flex items-baseline gap-3 flex-wrap">
+            <h3
+              className="font-display font-bold text-2xl md:text-3xl text-ink group-hover:text-[var(--hover-strong)] transition-colors duration-300"
+              style={{
+                letterSpacing: "-0.025em",
+                lineHeight: 1.4,
+                paddingBottom: "0.1em",
+              }}
+            >
+              {exp.role[locale]}
+            </h3>
+            {exp.badge && (
+              <span
+                className="font-mono text-sm tracking-widest px-2 py-0.5 rounded-sm border self-center"
+                style={{
+                  color: "rgba(99,102,241,0.65)",
+                  borderColor: "rgba(99,102,241,0.2)",
+                  background: "rgba(99,102,241,0.06)",
+                  lineHeight: 1,
+                }}
+              >
+                {exp.badge[locale]}
+              </span>
+            )}
+          </div>
           <span className="font-mono text-xs text-dust/40 tracking-widest uppercase whitespace-nowrap shrink-0">
             {exp.period[locale]}
           </span>

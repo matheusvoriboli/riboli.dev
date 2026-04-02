@@ -4,18 +4,20 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { projects } from "@/lib/data";
 import { fadeUp, EASE } from "@/lib/animations";
-import { useI18n } from "@/lib/i18n";
+import { useI18n, type Locale } from "@/lib/i18n";
 import { translations } from "@/lib/translations";
 import { ArrowUpRight, GitFork } from "lucide-react";
 
 function ProjectCard({
   project,
   index,
+  locale,
   repoLabel,
   liveLabel,
 }: {
   project: (typeof projects)[number];
   index: number;
+  locale: Locale;
   repoLabel: string;
   liveLabel: string;
 }) {
@@ -30,7 +32,8 @@ function ProjectCard({
       transition={{ delay: (index % 2) * 0.12, duration: 0.7, ease: EASE }}
       className="group relative flex flex-col justify-between rounded-2xl border border-[var(--border-subtle)] bg-elevated p-7 md:p-8"
       style={{
-        transition: "border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease",
+        transition:
+          "border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease",
       }}
       onMouseEnter={(e) => {
         const el = e.currentTarget;
@@ -48,7 +51,10 @@ function ProjectCard({
       {/* Top accent line */}
       <div
         className="absolute top-0 left-0 w-full h-px opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-t-2xl"
-        style={{ background: "linear-gradient(90deg, transparent, #6366F1, transparent)" }}
+        style={{
+          background:
+            "linear-gradient(90deg, transparent, #6366F1, transparent)",
+        }}
       />
 
       {/* Top row */}
@@ -86,12 +92,16 @@ function ProjectCard({
       <div className="flex flex-col gap-3 flex-1">
         <h3
           className="font-display font-bold text-xl md:text-2xl text-ink"
-          style={{ letterSpacing: "-0.02em", lineHeight: 1.4, paddingBottom: "0.1em" }}
+          style={{
+            letterSpacing: "-0.02em",
+            lineHeight: 1.4,
+            paddingBottom: "0.1em",
+          }}
         >
           {project.name}
         </h3>
         <p className="font-sans text-dust text-sm leading-relaxed font-light">
-          {project.description}
+          {project.description[locale]}
         </p>
       </div>
 
@@ -129,7 +139,11 @@ export default function Projects() {
         >
           04
         </motion.span>
-        <motion.div variants={fadeUp(0.1)} initial="hidden" animate={inView ? "visible" : "hidden"}>
+        <motion.div
+          variants={fadeUp(0.1)}
+          initial="hidden"
+          animate={inView ? "visible" : "hidden"}
+        >
           <h2
             className="font-display font-bold text-4xl md:text-6xl text-ink"
             style={{
@@ -149,7 +163,14 @@ export default function Projects() {
       {/* Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
         {projects.map((project, i) => (
-          <ProjectCard key={project.id} project={project} index={i} repoLabel={t.repoLabel} liveLabel={t.liveLabel} />
+          <ProjectCard
+            key={project.id}
+            project={project}
+            index={i}
+            locale={locale}
+            repoLabel={t.repoLabel}
+            liveLabel={t.liveLabel}
+          />
         ))}
       </div>
     </section>

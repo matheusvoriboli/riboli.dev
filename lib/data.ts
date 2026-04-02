@@ -106,6 +106,22 @@ export const experiences = [
     tags: ["React", "React Native", "TypeScript", "Design System", "Storybook", "MCP", "AI"],
   },
   {
+    id: "019d3ee3-finaya-74dc-a1a5-d3b0bbb327a6",
+    company: "Finaya",
+    badge: { pt: "contrato", en: "contract" },
+    role: {
+      pt: "Engenheiro de Software Sênior",
+      en: "Senior Software Engineer",
+    },
+    period: { pt: "Jan 2024 – Atual", en: "Jan 2024 – Present" },
+    location: "Barueri (Remote)",
+    description: {
+      pt: "Engenharia de front-end para plataforma banking web e aplicativos móveis transacionais em arquitetura white label. Integrei IA (Claude) diretamente na esteira de CI/CD para automatizar deploys e gerar release notes dinamicamente. Gerenciei o ciclo de vida completo dos apps móveis, orquestrando distribuição contínua na App Store e Play Store.",
+      en: "Frontend engineering for a banking web platform and transactional mobile apps in a white-label architecture. Integrated AI (Claude) directly into the CI/CD pipeline to automate deployments and dynamically generate release notes. Managed the full mobile app lifecycle, orchestrating continuous delivery to the App Store and Play Store.",
+    },
+    tags: ["React", "React Native", "TypeScript", "Banking", "CI/CD", "MobileOps", "AI"],
+  },
+  {
     id: "019d30e8-82f4-7027-9d23-01032ce15810",
     company: "People Interactive Brasil",
     role: {
@@ -153,9 +169,10 @@ export const experiences = [
   {
     id: "019d30e5-d954-754b-a48c-96c84ecc8fab",
     company: "Solver Tecnologias",
+    badge: { pt: "estágio", en: "intern" },
     role: {
-      pt: "Desenvolvedor Frontend (Estágio)",
-      en: "Frontend Developer (Intern)",
+      pt: "Desenvolvedor Frontend",
+      en: "Frontend Developer",
     },
     period: { pt: "Jan 2021 – Mar 2021", en: "Jan 2021 – Mar 2021" },
     location: "Itajubá, MG",
@@ -170,46 +187,28 @@ export const experiences = [
 export const projects = [
   {
     id: 1,
-    name: "Project Alpha",
+    name: "vScout",
     year: "2024",
-    description:
-      "Aplicação full-stack para gestão de tarefas com interface minimalista, autenticação e sincronização em tempo real.",
-    tags: ["Next.js", "TypeScript", "Prisma", "PostgreSQL"],
-    github: "#",
-    live: "#",
-    featured: true,
-  },
-  {
-    id: 2,
-    name: "Design System",
-    year: "2024",
-    description:
-      "Biblioteca de componentes React com Storybook, Tailwind e suporte a temas claro e escuro. Mais de 40 componentes documentados.",
-    tags: ["React", "TypeScript", "Storybook", "Tailwind"],
-    github: "#",
+    description: {
+      pt: "Plataforma gamificada de análise esportiva para futebol. O app mobile permite upload de vídeos de embaixadinhas, que são processados por visão computacional (YOLO + OpenCV) para detectar a bola, contar toques, identificar fraudes e gerar um ranking competitivo entre jogadores.",
+      en: "Gamified sports analysis platform for football. The mobile app lets players upload juggling videos, which are processed by computer vision (YOLO + OpenCV) to detect the ball, count touches, flag fraud, and generate a competitive leaderboard.",
+    },
+    tags: ["React Native", "Expo", "React", "Vite", "TypeScript", "Fastify", "Prisma", "PostgreSQL", "BullMQ", "Redis", "Python", "YOLO", "OpenCV", "Docker", "AWS S3"],
+    github: null,
     live: null,
     featured: true,
   },
   {
-    id: 3,
-    name: "Dashboard Analytics",
-    year: "2023",
-    description:
-      "Dashboard de métricas em tempo real com gráficos interativos, filtros dinâmicos e exportação de relatórios.",
-    tags: ["Next.js", "Recharts", "TypeScript", "REST API"],
-    github: "#",
-    live: "#",
-    featured: false,
-  },
-  {
-    id: 4,
-    name: "E-commerce UI",
-    year: "2023",
-    description:
-      "Interface de loja virtual com carrinho, favoritos e fluxo de checkout. Animações com Framer Motion.",
-    tags: ["React", "Framer Motion", "Tailwind", "Zustand"],
-    github: "#",
-    live: "#",
-    featured: false,
+    id: 2,
+    name: "Wise Path",
+    year: "2025",
+    description: {
+      pt: "Plataforma de aprendizado guiado por IA. Usuários descobrem e interagem com 'mentores' — prompts de IA curados por criadores e aprovados editorialmente — que conduzem sessões de aprendizado personalizadas via chat, com suporte a GraphQL e integração com o modelo Groq.",
+      en: "AI-guided learning platform. Users discover and interact with 'mentors' — AI prompts curated by creators and editorially approved — that lead personalized learning sessions via chat, backed by GraphQL and Groq model integration.",
+    },
+    tags: ["React", "Vite", "TanStack Router", "TanStack Query", "Apollo", "GraphQL", "Radix UI", "Tailwind v4", "Fastify", "Drizzle ORM", "PostgreSQL", "Groq", "TypeScript"],
+    github: null,
+    live: null,
+    featured: true,
   },
 ];
