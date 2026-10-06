@@ -91,13 +91,34 @@ export const education = [
 
 export const experiences = [
   {
+    id: "asaas-2026",
+    company: "Asaas",
+    role: {
+      pt: "Engenheiro de Front-end",
+      en: "Frontend Engineer",
+    },
+    period: { pt: "Jun 2026 – Atual", en: "Jun 2026 – Present" },
+    location: "Joinville, SC – Brazil (Remote)",
+    description: {
+      pt: "Integrante do time de front-end responsável pelo site da empresa, entregando funcionalidades e melhorias na experiência pública do produto. Atuo junto ao time nas decisões de arquitetura do front-end e em melhorias de performance, como otimizações de SSR e batching de requisições. Co-criei uma ferramenta de dev guardrails que funciona como um lint da biblioteca de componentes, apontando visualmente na página e no console do navegador usos incorretos e boas práticas não seguidas.",
+      en: "Member of the front-end team responsible for the company's website, delivering features and improvements across the public-facing product. Working with the team on front-end architecture decisions and performance improvements, including SSR optimizations and request batching. Co-created a developer guardrails tool that works as a lint for our component library, flagging misuse and best-practice violations both visually on the page and in the browser console.",
+    },
+    tags: [
+      "Front-end Architecture",
+      "Performance",
+      "SSR",
+      "Design System",
+      "DX",
+    ],
+  },
+  {
     id: "019d3ee3-8aaa-74dc-a1a5-d3b0bbb327a6",
     company: "GL Homes",
     role: {
       pt: "Engenheiro de Software Sênior",
       en: "Senior Software Engineer",
     },
-    period: { pt: "Set 2022 – Atual", en: "Sep 2022 – Present" },
+    period: { pt: "Set 2022 – Mai 2026", en: "Sep 2022 – May 2026" },
     location: "Sunrise, FL – USA (Remote)",
     description: {
       pt: "Estruturei um design system abrangente e biblioteca de componentes reutilizáveis para múltiplos produtos web e mobile. Implementei um assistente de IA no portal da biblioteca com MCP customizado. Atuei no desenvolvimento cross-platform com React Native, integrando APIs complexas com performance fluida em iOS e Android.",
@@ -121,7 +142,7 @@ export const experiences = [
       pt: "Engenheiro de Software Sênior",
       en: "Senior Software Engineer",
     },
-    period: { pt: "Jan 2024 – Atual", en: "Jan 2024 – Present" },
+    period: { pt: "Jan 2024 – Fev 2026", en: "Jan 2024 – Feb 2026" },
     location: "Barueri (Remote)",
     description: {
       pt: "Engenharia de front-end para plataforma banking web e aplicativos móveis transacionais em arquitetura white label. Integrei IA (Claude) diretamente na esteira de CI/CD para automatizar deploys e gerar release notes dinamicamente. Gerenciei o ciclo de vida completo dos apps móveis, orquestrando distribuição contínua na App Store e Play Store.",
