@@ -87,7 +87,7 @@ export default function Contact() {
         />
       </div>
 
-      <div className="relative z-10 flex flex-col items-start gap-10 md:gap-14 max-w-5xl">
+      <div className="relative z-10 flex flex-col items-start gap-10 md:gap-14 w-full">
         {/* Header */}
         <div className="flex items-start justify-between w-full">
           <motion.span
