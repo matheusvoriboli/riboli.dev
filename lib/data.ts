@@ -69,7 +69,7 @@ export const education = [
       pt: "Bacharelado em Engenharia de Computação",
       en: "Bachelor's in Computer Engineering",
     },
-    period: { pt: "Jan 2018 – Dez 2022", en: "Jan 2018 – Dec 2022" },
+    period: { pt: "Jan 2016 – Jun 2021", en: "Jan 2016 – Jun 2021" },
     location: "Itajubá, Minas Gerais",
     description: { pt: "", en: "" },
   },
